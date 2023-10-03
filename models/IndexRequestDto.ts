@@ -23,62 +23,55 @@ import {
 /**
  * 
  * @export
- * @interface LookupRequest
+ * @interface IndexRequestDto
  */
-export interface LookupRequest {
+export interface IndexRequestDto {
     /**
      * 
      * @type {Modality}
-     * @memberof LookupRequest
+     * @memberof IndexRequestDto
      */
     modality?: Modality;
     /**
-     * The nth nearest index to the query
-     * @type {number}
-     * @memberof LookupRequest
+     * Input attributes
+     * @type {Array<string>}
+     * @memberof IndexRequestDto
      */
-    topK?: number;
+    attributes?: Array<string>;
     /**
-     * 
-     * @type {any}
-     * @memberof LookupRequest
+     * Input as binary data
+     * @type {Array<Blob>}
+     * @memberof IndexRequestDto
      */
-    query?: any;
-    /**
-     * Optional list of ids to specify a query subset
-     * @type {Array<number>}
-     * @memberof LookupRequest
-     */
-    ids?: Array<number>;
+    input?: Array<Blob>;
 }
 
 /**
- * Check if a given object implements the LookupRequest interface.
+ * Check if a given object implements the IndexRequestDto interface.
  */
-export function instanceOfLookupRequest(value: object): boolean {
+export function instanceOfIndexRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function LookupRequestFromJSON(json: any): LookupRequest {
-    return LookupRequestFromJSONTyped(json, false);
+export function IndexRequestDtoFromJSON(json: any): IndexRequestDto {
+    return IndexRequestDtoFromJSONTyped(json, false);
 }
 
-export function LookupRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): LookupRequest {
+export function IndexRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): IndexRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'modality': !exists(json, 'modality') ? undefined : ModalityFromJSON(json['modality']),
-        'topK': !exists(json, 'top_k') ? undefined : json['top_k'],
-        'query': !exists(json, 'query') ? undefined : json['query'],
-        'ids': !exists(json, 'ids') ? undefined : json['ids'],
+        'attributes': !exists(json, 'attributes') ? undefined : json['attributes'],
+        'input': !exists(json, 'input') ? undefined : json['input'],
     };
 }
 
-export function LookupRequestToJSON(value?: LookupRequest | null): any {
+export function IndexRequestDtoToJSON(value?: IndexRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -88,9 +81,8 @@ export function LookupRequestToJSON(value?: LookupRequest | null): any {
     return {
         
         'modality': ModalityToJSON(value.modality),
-        'top_k': value.topK,
-        'query': value.query,
-        'ids': value.ids,
+        'attributes': value.attributes,
+        'input': value.input,
     };
 }
 

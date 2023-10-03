@@ -16,43 +16,43 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface JsonTextLookupRequest
+ * @interface JsonTextLookupRequestDto
  */
-export interface JsonTextLookupRequest {
+export interface JsonTextLookupRequestDto {
     /**
      * The nth nearest index to the query
      * @type {number}
-     * @memberof JsonTextLookupRequest
+     * @memberof JsonTextLookupRequestDto
      */
     topK?: number;
     /**
      * Query as binary data
      * @type {string}
-     * @memberof JsonTextLookupRequest
+     * @memberof JsonTextLookupRequestDto
      */
     query?: string;
     /**
      * Optional list of ids to specify a query subset
      * @type {Array<number>}
-     * @memberof JsonTextLookupRequest
+     * @memberof JsonTextLookupRequestDto
      */
     ids?: Array<number>;
 }
 
 /**
- * Check if a given object implements the JsonTextLookupRequest interface.
+ * Check if a given object implements the JsonTextLookupRequestDto interface.
  */
-export function instanceOfJsonTextLookupRequest(value: object): boolean {
+export function instanceOfJsonTextLookupRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function JsonTextLookupRequestFromJSON(json: any): JsonTextLookupRequest {
-    return JsonTextLookupRequestFromJSONTyped(json, false);
+export function JsonTextLookupRequestDtoFromJSON(json: any): JsonTextLookupRequestDto {
+    return JsonTextLookupRequestDtoFromJSONTyped(json, false);
 }
 
-export function JsonTextLookupRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): JsonTextLookupRequest {
+export function JsonTextLookupRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): JsonTextLookupRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -64,7 +64,7 @@ export function JsonTextLookupRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function JsonTextLookupRequestToJSON(value?: JsonTextLookupRequest | null): any {
+export function JsonTextLookupRequestDtoToJSON(value?: JsonTextLookupRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }

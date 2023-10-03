@@ -16,31 +16,31 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface DeleteRequest
+ * @interface DeleteRequestDto
  */
-export interface DeleteRequest {
+export interface DeleteRequestDto {
     /**
      * id of the vector whose embeddings should be deleted
      * @type {Array<number>}
-     * @memberof DeleteRequest
+     * @memberof DeleteRequestDto
      */
     id?: Array<number>;
 }
 
 /**
- * Check if a given object implements the DeleteRequest interface.
+ * Check if a given object implements the DeleteRequestDto interface.
  */
-export function instanceOfDeleteRequest(value: object): boolean {
+export function instanceOfDeleteRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function DeleteRequestFromJSON(json: any): DeleteRequest {
-    return DeleteRequestFromJSONTyped(json, false);
+export function DeleteRequestDtoFromJSON(json: any): DeleteRequestDto {
+    return DeleteRequestDtoFromJSONTyped(json, false);
 }
 
-export function DeleteRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteRequest {
+export function DeleteRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -50,7 +50,7 @@ export function DeleteRequestFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function DeleteRequestToJSON(value?: DeleteRequest | null): any {
+export function DeleteRequestDtoToJSON(value?: DeleteRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }

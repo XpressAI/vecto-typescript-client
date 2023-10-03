@@ -23,43 +23,43 @@ import {
 /**
  * 
  * @export
- * @interface VectorUpdateRequest
+ * @interface VectorUpdateRequestDto
  */
-export interface VectorUpdateRequest {
+export interface VectorUpdateRequestDto {
     /**
      * 
      * @type {Modality}
-     * @memberof VectorUpdateRequest
+     * @memberof VectorUpdateRequestDto
      */
     modality?: Modality;
     /**
      * id of the vector whose embeddings should be changed
      * @type {Array<number>}
-     * @memberof VectorUpdateRequest
+     * @memberof VectorUpdateRequestDto
      */
     id?: Array<number>;
     /**
      * Input as binary data
      * @type {Array<Blob>}
-     * @memberof VectorUpdateRequest
+     * @memberof VectorUpdateRequestDto
      */
     input?: Array<Blob>;
 }
 
 /**
- * Check if a given object implements the VectorUpdateRequest interface.
+ * Check if a given object implements the VectorUpdateRequestDto interface.
  */
-export function instanceOfVectorUpdateRequest(value: object): boolean {
+export function instanceOfVectorUpdateRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function VectorUpdateRequestFromJSON(json: any): VectorUpdateRequest {
-    return VectorUpdateRequestFromJSONTyped(json, false);
+export function VectorUpdateRequestDtoFromJSON(json: any): VectorUpdateRequestDto {
+    return VectorUpdateRequestDtoFromJSONTyped(json, false);
 }
 
-export function VectorUpdateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): VectorUpdateRequest {
+export function VectorUpdateRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): VectorUpdateRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -71,7 +71,7 @@ export function VectorUpdateRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function VectorUpdateRequestToJSON(value?: VectorUpdateRequest | null): any {
+export function VectorUpdateRequestDtoToJSON(value?: VectorUpdateRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }

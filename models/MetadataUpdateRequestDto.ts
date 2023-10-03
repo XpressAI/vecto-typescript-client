@@ -16,37 +16,37 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface MetadataUpdateRequest
+ * @interface MetadataUpdateRequestDto
  */
-export interface MetadataUpdateRequest {
+export interface MetadataUpdateRequestDto {
     /**
      * id of the vector whose metadata should be changed
      * @type {Array<number>}
-     * @memberof MetadataUpdateRequest
+     * @memberof MetadataUpdateRequestDto
      */
     id?: Array<number>;
     /**
      * new attributes for the vector identified by id
      * @type {Array<string>}
-     * @memberof MetadataUpdateRequest
+     * @memberof MetadataUpdateRequestDto
      */
     attributes?: Array<string>;
 }
 
 /**
- * Check if a given object implements the MetadataUpdateRequest interface.
+ * Check if a given object implements the MetadataUpdateRequestDto interface.
  */
-export function instanceOfMetadataUpdateRequest(value: object): boolean {
+export function instanceOfMetadataUpdateRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function MetadataUpdateRequestFromJSON(json: any): MetadataUpdateRequest {
-    return MetadataUpdateRequestFromJSONTyped(json, false);
+export function MetadataUpdateRequestDtoFromJSON(json: any): MetadataUpdateRequestDto {
+    return MetadataUpdateRequestDtoFromJSONTyped(json, false);
 }
 
-export function MetadataUpdateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): MetadataUpdateRequest {
+export function MetadataUpdateRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): MetadataUpdateRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -57,7 +57,7 @@ export function MetadataUpdateRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function MetadataUpdateRequestToJSON(value?: MetadataUpdateRequest | null): any {
+export function MetadataUpdateRequestDtoToJSON(value?: MetadataUpdateRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }

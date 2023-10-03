@@ -23,55 +23,62 @@ import {
 /**
  * 
  * @export
- * @interface IndexRequest
+ * @interface LookupRequestDto
  */
-export interface IndexRequest {
+export interface LookupRequestDto {
     /**
      * 
      * @type {Modality}
-     * @memberof IndexRequest
+     * @memberof LookupRequestDto
      */
     modality?: Modality;
     /**
-     * Input attributes
-     * @type {Array<string>}
-     * @memberof IndexRequest
+     * The nth nearest index to the query
+     * @type {number}
+     * @memberof LookupRequestDto
      */
-    attributes?: Array<string>;
+    topK?: number;
     /**
-     * Input as binary data
-     * @type {Array<Blob>}
-     * @memberof IndexRequest
+     * 
+     * @type {any}
+     * @memberof LookupRequestDto
      */
-    input?: Array<Blob>;
+    query?: any;
+    /**
+     * Optional list of ids to specify a query subset
+     * @type {Array<number>}
+     * @memberof LookupRequestDto
+     */
+    ids?: Array<number>;
 }
 
 /**
- * Check if a given object implements the IndexRequest interface.
+ * Check if a given object implements the LookupRequestDto interface.
  */
-export function instanceOfIndexRequest(value: object): boolean {
+export function instanceOfLookupRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function IndexRequestFromJSON(json: any): IndexRequest {
-    return IndexRequestFromJSONTyped(json, false);
+export function LookupRequestDtoFromJSON(json: any): LookupRequestDto {
+    return LookupRequestDtoFromJSONTyped(json, false);
 }
 
-export function IndexRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): IndexRequest {
+export function LookupRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): LookupRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'modality': !exists(json, 'modality') ? undefined : ModalityFromJSON(json['modality']),
-        'attributes': !exists(json, 'attributes') ? undefined : json['attributes'],
-        'input': !exists(json, 'input') ? undefined : json['input'],
+        'topK': !exists(json, 'top_k') ? undefined : json['top_k'],
+        'query': !exists(json, 'query') ? undefined : json['query'],
+        'ids': !exists(json, 'ids') ? undefined : json['ids'],
     };
 }
 
-export function IndexRequestToJSON(value?: IndexRequest | null): any {
+export function LookupRequestDtoToJSON(value?: LookupRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -81,8 +88,9 @@ export function IndexRequestToJSON(value?: IndexRequest | null): any {
     return {
         
         'modality': ModalityToJSON(value.modality),
-        'attributes': value.attributes,
-        'input': value.input,
+        'top_k': value.topK,
+        'query': value.query,
+        'ids': value.ids,
     };
 }
 

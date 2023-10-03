@@ -23,55 +23,55 @@ import {
 /**
  * 
  * @export
- * @interface DynamicAnalogyLookupRequest
+ * @interface DynamicAnalogyLookupRequestDto
  */
-export interface DynamicAnalogyLookupRequest {
+export interface DynamicAnalogyLookupRequestDto {
     /**
      * 
      * @type {Modality}
-     * @memberof DynamicAnalogyLookupRequest
+     * @memberof DynamicAnalogyLookupRequestDto
      */
     modality?: Modality;
     /**
      * The nth nearest index to the query
      * @type {number}
-     * @memberof DynamicAnalogyLookupRequest
+     * @memberof DynamicAnalogyLookupRequestDto
      */
     topK?: number;
     /**
      * 
      * @type {any}
-     * @memberof DynamicAnalogyLookupRequest
+     * @memberof DynamicAnalogyLookupRequestDto
      */
     query?: any;
     /**
      * Analogy from as binary data
      * @type {Array<Blob>}
-     * @memberof DynamicAnalogyLookupRequest
+     * @memberof DynamicAnalogyLookupRequestDto
      */
     start?: Array<Blob>;
     /**
      * Analogy to as binary data
      * @type {Array<Blob>}
-     * @memberof DynamicAnalogyLookupRequest
+     * @memberof DynamicAnalogyLookupRequestDto
      */
     end?: Array<Blob>;
 }
 
 /**
- * Check if a given object implements the DynamicAnalogyLookupRequest interface.
+ * Check if a given object implements the DynamicAnalogyLookupRequestDto interface.
  */
-export function instanceOfDynamicAnalogyLookupRequest(value: object): boolean {
+export function instanceOfDynamicAnalogyLookupRequestDto(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function DynamicAnalogyLookupRequestFromJSON(json: any): DynamicAnalogyLookupRequest {
-    return DynamicAnalogyLookupRequestFromJSONTyped(json, false);
+export function DynamicAnalogyLookupRequestDtoFromJSON(json: any): DynamicAnalogyLookupRequestDto {
+    return DynamicAnalogyLookupRequestDtoFromJSONTyped(json, false);
 }
 
-export function DynamicAnalogyLookupRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): DynamicAnalogyLookupRequest {
+export function DynamicAnalogyLookupRequestDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): DynamicAnalogyLookupRequestDto {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -85,7 +85,7 @@ export function DynamicAnalogyLookupRequestFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-export function DynamicAnalogyLookupRequestToJSON(value?: DynamicAnalogyLookupRequest | null): any {
+export function DynamicAnalogyLookupRequestDtoToJSON(value?: DynamicAnalogyLookupRequestDto | null): any {
     if (value === undefined) {
         return undefined;
     }

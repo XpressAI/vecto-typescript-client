@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/IndexApi.ts
 apis/LookupApi.ts
 apis/ManagementApi.ts
@@ -9,15 +8,15 @@ models/ActionStatusResponse.ts
 models/AnalogyDTO.ts
 models/DataEntry.ts
 models/DataPage.ts
-models/DeleteRequest.ts
-models/DynamicAnalogyLookupRequest.ts
-models/IndexRequest.ts
+models/DeleteRequestDto.ts
+models/DynamicAnalogyLookupRequestDto.ts
+models/IndexRequestDto.ts
 models/IndexResponse.ts
-models/JsonTextLookupRequest.ts
-models/LookupRequest.ts
+models/JsonTextLookupRequestDto.ts
+models/LookupRequestDto.ts
 models/LookupResponse.ts
 models/LookupResult.ts
-models/MetadataUpdateRequest.ts
+models/MetadataUpdateRequestDto.ts
 models/Modality.ts
 models/ModelInformation.ts
 models/NewTokenRequest.ts
@@ -28,6 +27,6 @@ models/TokenType.ts
 models/UpdateVectorSpaceRequest.ts
 models/UserDTO.ts
 models/VectorSpaceResponse.ts
-models/VectorUpdateRequest.ts
+models/VectorUpdateRequestDto.ts
 models/index.ts
 runtime.ts
