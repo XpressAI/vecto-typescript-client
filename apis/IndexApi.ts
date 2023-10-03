@@ -75,7 +75,7 @@ export class IndexApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.modality !== undefined) {
-            formParams.append('modality', new Blob([JSON.stringify(ModalityToJSON(requestParameters.modality))], { type: "application/json", }));
+            formParams.append('modality', requestParameters.modality as any);
                     }
 
         if (requestParameters.attributes) {

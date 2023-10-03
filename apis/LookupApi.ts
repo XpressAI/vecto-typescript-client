@@ -93,7 +93,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.modality !== undefined) {
-            formParams.append('modality', new Blob([JSON.stringify(ModalityToJSON(requestParameters.modality))], { type: "application/json", }));
+            formParams.append('modality', requestParameters.modality as any);
                     }
 
         if (requestParameters.topK !== undefined) {
@@ -101,7 +101,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.query !== undefined) {
-            formParams.append('query', new Blob([JSON.stringify(anyToJSON(requestParameters.query))], { type: "application/json", }));
+            formParams.append('query', requestParameters.query as any);
                     }
 
         if (requestParameters.ids) {
@@ -168,7 +168,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.modality !== undefined) {
-            formParams.append('modality', new Blob([JSON.stringify(ModalityToJSON(requestParameters.modality))], { type: "application/json", }));
+            formParams.append('modality', requestParameters.modality as any);
                     }
 
         if (requestParameters.topK !== undefined) {
@@ -176,7 +176,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.query !== undefined) {
-            formParams.append('query', new Blob([JSON.stringify(anyToJSON(requestParameters.query))], { type: "application/json", }));
+            formParams.append('query', requestParameters.query as any);
                     }
 
         if (requestParameters.start) {
@@ -251,7 +251,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.modality !== undefined) {
-            formParams.append('modality', new Blob([JSON.stringify(ModalityToJSON(requestParameters.modality))], { type: "application/json", }));
+            formParams.append('modality', requestParameters.modality as any);
                     }
 
         if (requestParameters.topK !== undefined) {
@@ -259,7 +259,7 @@ export class LookupApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.query !== undefined) {
-            formParams.append('query', new Blob([JSON.stringify(anyToJSON(requestParameters.query))], { type: "application/json", }));
+            formParams.append('query', requestParameters.query as any);
                     }
 
         if (requestParameters.ids) {
