@@ -65,7 +65,7 @@ export class IndexApi extends runtime.BaseAPI {
         const canConsumeForm = runtime.canConsumeForm(consumes);
 
         let formParams: { append(param: string, value: any): any };
-        let useForm = false;
+        let useForm = true;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
         if (useForm) {
