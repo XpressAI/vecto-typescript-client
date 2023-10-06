@@ -1,27 +1,119 @@
-import { Configuration, ManagementApi } from 'vecto-sdk';  
+import { 
+    Configuration, 
+    ManagementApi, 
+    CreateVectorSpaceRequest, 
+    DeleteVectorSpaceRequest,
+    CreateTokenRequest,
+    DeleteTokenRequest,
+    ListDataRequest,
+    UpdateVectorSpaceRequest,
+    UpdateVectorSpaceOperationRequest
+} from 'vecto-sdk';
 
 const config = new Configuration({
     accessToken: process.env.VECTO_ACCESS_TOKEN
 });
 
-const managementApi = new ManagementApi(config);
+const api = new ManagementApi(config);
 
-async function listUserInformation() {
-    try {
-        return await managementApi.getUserInformation();
-    } catch (error) {
-        throw new Error(`Failed to get user information: ${JSON.stringify(error)}`);
-    }
-}
-
-// Test suite
-describe('Management API Tests', () => {
+describe('Management API Tests - List User', () => {
     it('should list user information successfully', async () => {
-        // Call the function
-        const response = await listUserInformation();
-        
-        // Assertions to check if response is as expected
+        const response = await api.getUserInformation();
         expect(response).toBeDefined();
     });
 });
 
+describe('Management API Tests - List Data', () => {
+    it('should list the attributes of all entries in the given vector space successfully', async () => {
+        const params: ListDataRequest = {
+            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+        }
+        const response = await api.listData(params);
+        expect(response).toBeDefined();
+    });
+});
+
+describe('Management API Tests - Vector Space', () => {
+
+    let vector_space_id: number;
+
+    it('should create a new vector space', async () => {
+        const params: CreateVectorSpaceRequest = {
+            newVectorSpaceRequest: {
+                name: 'js-sdk-test-vs',
+                modelId: 1
+            }
+        };
+
+        const response = await api.createVectorSpace(params);
+        expect(response).toBeDefined();
+        vector_space_id = response.id as number
+    });
+
+    it('should rename the new vector space', async () => {
+
+        const updatedVSName = 'updated-js-sdk-test-vs'
+
+        const params: UpdateVectorSpaceOperationRequest = {
+            id: vector_space_id,
+            updateVectorSpaceRequest:{
+                name: updatedVSName,
+            }
+        };
+
+        const response = await api.updateVectorSpace(params);
+        expect(response).toBeDefined();
+        expect(response.name).toBe(updatedVSName);
+    });
+
+    it('should delete the newly created vector space', async () => {
+
+        const params: DeleteVectorSpaceRequest = {
+                id: vector_space_id
+            }
+
+        if (vector_space_id) {
+            const response = await api.deleteVectorSpace(params);
+            expect(response).toBeDefined();
+            expect(response.status).toBe("OK")
+        } else {
+            throw new Error("Vector space was not created in the previous test");
+        }
+    });
+
+});
+
+
+describe('Management API Tests - Tokens', () => {
+
+    let token_id: number;
+
+    it('should create a new token', async () => {
+        const params: CreateTokenRequest = {
+            newTokenRequest:{
+                tokenType: "PUBLIC",
+                name: "test-token",
+            }
+        };
+
+        const response = await api.createToken(params);
+        expect(response).toBeDefined();
+        token_id = response.id as number
+    });
+
+    it('should delete the newly created token', async () => {
+
+        const params: DeleteTokenRequest = {
+                id: token_id
+            }
+
+        if (token_id) {
+            const response = await api.deleteToken(params);
+            expect(response).toBeDefined();
+            expect(response.status).toBe("OK")
+        } else {
+            throw new Error("Token was not created in the previous test");
+        }
+    });
+
+});
