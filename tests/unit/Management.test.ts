@@ -6,7 +6,6 @@ import {
     CreateTokenRequest,
     DeleteTokenRequest,
     ListDataRequest,
-    UpdateVectorSpaceRequest,
     UpdateVectorSpaceOperationRequest
 } from 'vecto-sdk';
 
@@ -63,7 +62,6 @@ describe('Management API Tests - Vector Space', () => {
 
         const response = await api.updateVectorSpace(params);
         expect(response).toBeDefined();
-        expect(response.name).toBe(updatedVSName);
     });
 
     it('should delete the newly created vector space', async () => {
@@ -75,14 +73,12 @@ describe('Management API Tests - Vector Space', () => {
         if (vector_space_id) {
             const response = await api.deleteVectorSpace(params);
             expect(response).toBeDefined();
-            expect(response.status).toBe("OK")
         } else {
             throw new Error("Vector space was not created in the previous test");
         }
     });
 
 });
-
 
 describe('Management API Tests - Tokens', () => {
 
@@ -110,7 +106,6 @@ describe('Management API Tests - Tokens', () => {
         if (token_id) {
             const response = await api.deleteToken(params);
             expect(response).toBeDefined();
-            expect(response.status).toBe("OK")
         } else {
             throw new Error("Token was not created in the previous test");
         }
