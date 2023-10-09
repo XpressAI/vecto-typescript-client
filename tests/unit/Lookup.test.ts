@@ -1,4 +1,4 @@
-import { Configuration, LookupApi, LookupRequest, LookupWithDynamicAnalogyRequest } from 'vecto-sdk'
+import { Configuration, LookupApi, LookupRequest, LookupWithDynamicAnalogyRequest } from '../../dist/'
 import fs from 'fs';
 
 const config = new Configuration({

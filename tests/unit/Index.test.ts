@@ -1,4 +1,4 @@
-import { Configuration, IndexApi, IndexDataRequest } from 'vecto-sdk';
+import { Configuration, IndexApi, IndexDataRequest } from '../../dist';
 import fs from 'fs';
 
 const config = new Configuration({

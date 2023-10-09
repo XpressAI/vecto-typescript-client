@@ -7,7 +7,7 @@ import {
     UpdateEmbeddingsRequest,
     ClearVectorSpaceRequest,
     DeleteRequest, 
-} from 'vecto-sdk';
+} from '../../dist/';
 
 const config = new Configuration({
     accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
