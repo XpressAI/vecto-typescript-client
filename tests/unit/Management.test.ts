@@ -10,7 +10,7 @@ import {
 } from 'vecto-sdk';
 
 const config = new Configuration({
-    accessToken: process.env.VECTO_ACCESS_TOKEN
+    accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
 });
 
 const api = new ManagementApi(config);
@@ -25,7 +25,7 @@ describe('Management API Tests - List User', () => {
 describe('Management API Tests - List Data', () => {
     it('should list the attributes of all entries in the given vector space successfully', async () => {
         const params: ListDataRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
         }
         const response = await api.listData(params);
         expect(response).toBeDefined();

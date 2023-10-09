@@ -2,7 +2,7 @@ import { Configuration, LookupApi, LookupRequest, LookupWithDynamicAnalogyReques
 import fs from 'fs';
 
 const config = new Configuration({
-    accessToken: process.env.VECTO_ACCESS_TOKEN
+    accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
 });
 
 const api = new LookupApi(config);
@@ -10,7 +10,7 @@ const api = new LookupApi(config);
 describe('Lookup Text Test', () => {
     it('should fetch nearest vectors for a given text query', async () => {
         const params: LookupRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: 'TEXT',
             topK: 3,
             query: 'sample', 
@@ -26,7 +26,7 @@ describe('Lookup Image Test', () => {
         const imageBlob = new Blob([fileContent]);
 
         const params: LookupRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: 'IMAGE',
             topK: 3,
             query: imageBlob, 
@@ -42,7 +42,7 @@ describe('Dynamic Image Analogy Test', () => {
         const imageBlob = new Blob([fileContent]);
 
         const params: LookupWithDynamicAnalogyRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: 'IMAGE',
             topK: 3,
             query: imageBlob,
@@ -58,7 +58,7 @@ describe('Dynamic Text Analogy Test', () => {
     it('should fetch nearest vectors given two text blob', async () => {
 
         const params: LookupWithDynamicAnalogyRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: 'TEXT',
             topK: 3,
             query: "Man",

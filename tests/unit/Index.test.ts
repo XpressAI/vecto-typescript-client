@@ -2,7 +2,7 @@ import { Configuration, IndexApi, IndexDataRequest } from 'vecto-sdk';
 import fs from 'fs';
 
 const config = new Configuration({
-    accessToken: process.env.VECTO_ACCESS_TOKEN
+    accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
 });
 
 const api = new IndexApi(config);
@@ -12,7 +12,7 @@ describe("Vecto Text Indexing Test", () => {
         const textBlob = new Blob(["Hello Vecto"]);
 
         const params: IndexDataRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: "TEXT",
             attributes: [JSON.stringify("attribute1")],
             input: [textBlob]
@@ -29,7 +29,7 @@ describe("Vecto Image Indexing Test", () => {
         const imageBlob = new Blob([fileContent]);
 
         const params: IndexDataRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: "IMAGE",
             attributes: [JSON.stringify("attribute1")],
             input: [imageBlob]

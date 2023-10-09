@@ -10,7 +10,7 @@ import {
 } from 'vecto-sdk';
 
 const config = new Configuration({
-    accessToken: process.env.VECTO_ACCESS_TOKEN
+    accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
 });
 
 const api = new UpdateApi(config);
@@ -22,7 +22,7 @@ async function indexSampleData(): Promise<void> {
     const textBlob2 = new Blob(["Second Blob"]);
 
     const params: IndexDataRequest = {
-        vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+        vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
         modality: "TEXT",
         attributes: [JSON.stringify("sample attribute"), JSON.stringify("second attribute")],
         input: [textBlob1, textBlob2]
@@ -42,7 +42,7 @@ describe("Vecto Update Api Test", () => {
         const updateAttributeStr = "updated attribute"
 
         const updateAttributeParams: UpdateAttributesRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             id: [index_ids[0]], 
             attributes: [JSON.stringify(updateAttributeStr)]
         };
@@ -53,7 +53,7 @@ describe("Vecto Update Api Test", () => {
 
     it('should update embedding', async () => {
         const updateEmbeddingsParams: UpdateEmbeddingsRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             modality: "TEXT",
             id: [index_ids[0]],
             input: [new Blob(["Updated Hello Vecto"])]
@@ -66,7 +66,7 @@ describe("Vecto Update Api Test", () => {
 
     it('should delete an entry', async () => {
         const deleteRequest: DeleteRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID),
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
             id: [index_ids[0]],
         };
 
@@ -77,7 +77,7 @@ describe("Vecto Update Api Test", () => {
 
     it('should clear vector space', async () => {
         const clearVectorSpaceParams: ClearVectorSpaceRequest = {
-            vectorSpaceId: Number(process.env.VECTO_VECTOR_SPACE_ID)
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID)
         };
 
         const clearResponse = await api.clearVectorSpaceRaw(clearVectorSpaceParams);
