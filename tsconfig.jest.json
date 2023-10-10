@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "outDir": "./dist",
+      "rootDirs": ["./src", "./tests"], 
+      "strict": true,
+      "types": ["jest", "node"],
+      "baseUrl": ".",
+      "paths": {
+        "vecto-sdk": ["./dist"],
+        "vecto-sdk/*": ["./dist/*"]
+      },
+    },
+    "include": ["src/**/*.ts", "tests/**/*.ts"],
+    "exclude": ["node_modules"],
+  }
+  
