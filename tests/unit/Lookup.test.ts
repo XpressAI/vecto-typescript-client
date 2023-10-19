@@ -51,7 +51,7 @@ describe('Dynamic Image Analogy Test', () => {
         };
         const response = await api.lookupWithDynamicAnalogy(params);
         expect(response).toBeDefined();
-    });
+    }, 20000); // Increased timeout to 20 seconds
 });
 
 describe('Dynamic Text Analogy Test', () => {

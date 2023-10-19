@@ -1,41 +1,26 @@
 import { 
     Configuration, 
-    IndexApi,
     UpdateApi,
-    IndexDataRequest,
     UpdateAttributesRequest, 
     UpdateEmbeddingsRequest,
     ClearVectorSpaceRequest,
     DeleteRequest, 
 } from '../../dist/';
+import { indexSampleData } from '../utils/vecto_test_utils';
 
 const config = new Configuration({
     accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
 });
 
 const api = new UpdateApi(config);
-const indexApi = new IndexApi(config);
-let index_ids: Array<number>;
-
-async function indexSampleData(): Promise<void> {
-    const textBlob1 = new Blob(["Hello Vecto"]);
-    const textBlob2 = new Blob(["Second Blob"]);
-
-    const params: IndexDataRequest = {
-        vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
-        modality: "TEXT",
-        attributes: [JSON.stringify("sample attribute"), JSON.stringify("second attribute")],
-        input: [textBlob1, textBlob2]
-    };
-
-    const indexResponse = await indexApi.indexData(params);
-    index_ids = indexResponse.ids as Array<number>;
-}
 
 describe("Vecto Update Api Test", () => {
+
+    let index_ids: Array<number>;
+
     beforeAll(async () => {
         // Index sample data before running tests
-        await indexSampleData();
+        index_ids = await indexSampleData();
     });
     it('should update attribute ', async () => {
         

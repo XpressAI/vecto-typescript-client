@@ -3,11 +3,14 @@ import {
     ManagementApi, 
     CreateVectorSpaceRequest, 
     DeleteVectorSpaceRequest,
+    GetVectorSpaceRequest,
     CreateTokenRequest,
     DeleteTokenRequest,
     ListDataRequest,
-    UpdateVectorSpaceOperationRequest
+    UpdateVectorSpaceOperationRequest,
+    DeleteEntryRequest
 } from '../../dist/';
+import { indexSampleData } from '../utils/vecto_test_utils';
 
 const config = new Configuration({
     accessToken: process.env.TEST_MANAGEMENT_ACCESS_TOKEN
@@ -15,14 +18,13 @@ const config = new Configuration({
 
 const api = new ManagementApi(config);
 
-describe('Management API Tests - List User', () => {
+describe('Management API Tests - List Information', () => {
+
     it('should list user information successfully', async () => {
         const response = await api.getUserInformation();
         expect(response).toBeDefined();
     });
-});
 
-describe('Management API Tests - List Data', () => {
     it('should list the attributes of all entries in the given vector space successfully', async () => {
         const params: ListDataRequest = {
             vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
@@ -30,7 +32,54 @@ describe('Management API Tests - List Data', () => {
         const response = await api.listData(params);
         expect(response).toBeDefined();
     });
+
+    it('should list all available models', async () => {
+        const response = await api.listModels();
+        expect(response).toBeDefined();
+    });
+
+    it('should list all tokens', async () => {
+        const response = await api.listTokens();
+        expect(response).toBeDefined();
+    });
+
+    it('should list all vector spaces', async () => {
+        const response = await api.listVectorSpaces();
+        expect(response).toBeDefined();
+    });
+
 });
+
+
+describe('Management API Tests - Get Vector Space', () => {
+    it('should get vector space by ID', async () => {
+        const params: GetVectorSpaceRequest = {
+            id: Number(process.env.TEST_VECTOR_SPACE_ID),
+        }
+        const response = await api.getVectorSpace(params);
+        expect(response).toBeDefined();
+    });
+});
+
+
+describe("Management API Tests - Delete Entry", () => {
+
+    let index_ids: Array<number>;
+
+    beforeAll(async () => {
+        // Index sample data before running tests
+        index_ids = await indexSampleData();
+    });
+
+    it('should delete an entry in a vector space', async () => {
+        const params: DeleteEntryRequest = {
+            vectorSpaceId: Number(process.env.TEST_VECTOR_SPACE_ID),
+            entryId: index_ids[0]
+        };
+
+        await expect(api.deleteEntry(params)).resolves.not.toThrow();
+    });
+})
 
 describe('Management API Tests - Vector Space', () => {
 
