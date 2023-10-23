@@ -1,6 +1,6 @@
 {
     "name": "@xpressai/vecto-client",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "main": "dist/index.js",
     "repository": {
         "type": "git",
@@ -12,7 +12,7 @@
         "test": "tsc && jest --runInBand"
     },
     "files": [
-        "dist/"
+        "/dist"
     ],
     "devDependencies": {
         "@types/jest": "^29.5.5",
