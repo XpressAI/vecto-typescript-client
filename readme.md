@@ -12,13 +12,13 @@
 
 <br>
 
-# Vecto TypeScript SDK
-Welcome to the Vecto TypeScript SDK! This SDK provides convenient access to the Vecto API.
+# Vecto TypeScript Client
+Welcome to the Vecto TypeScript Client! This client provides convenient access to the Vecto API.
 
 ## Installation
 
 ```
-npm install vecto-sdk
+npm install @xpressai/vecto-client
 ```
 
 
@@ -32,7 +32,6 @@ export TEST_MANAGEMENT_ACCESS_TOKEN="your token" &&
 export TEST_VECTOR_SPACE_ID="your vs id" &&
 npm test
 ```
-
 
 
 ## Sample Usage
@@ -72,4 +71,4 @@ For detailed documentation of the methods and models, refer to our [official doc
 Have any questions or need support? Feel free to chat with the devs at our [Discord](https://discord.com/invite/wtYbXvPPfD)!
 
 ## Support
-For issues with the SDK, please raise a GitHub issue. For issues related to the API or other inquiries, please contact Vecto support.
+For issues with the Client, please raise a GitHub issue. For issues related to the API or other inquiries, please contact Vecto support.
