@@ -9,10 +9,11 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "test": "tsc && jest --runInBand"
+        "test": "tsc && jest --runInBand",
+        "prepublish": "tsc"
     },
     "files": [
-        "/dist"
+        "dist"
     ],
     "devDependencies": {
         "@types/jest": "^29.5.5",
