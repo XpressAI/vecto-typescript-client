@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './ActionStatusResponse';
 export * from './AnalogyDTO';
+export * from './DailyUsageMetric';
 export * from './DataEntry';
 export * from './DataPage';
 export * from './DeleteRequestDto';
@@ -15,12 +16,15 @@ export * from './LookupResult';
 export * from './MetadataUpdateRequestDto';
 export * from './Modality';
 export * from './ModelInformation';
+export * from './MonthlyUsageResponse';
 export * from './NewTokenRequest';
 export * from './NewVectorSpaceRequest';
 export * from './TokenDTO';
 export * from './TokenResponse';
 export * from './TokenType';
 export * from './UpdateVectorSpaceRequest';
+export * from './UsageMetric';
 export * from './UserDTO';
+export * from './VectoUsageMetrics';
 export * from './VectorSpaceResponse';
 export * from './VectorUpdateRequestDto';
