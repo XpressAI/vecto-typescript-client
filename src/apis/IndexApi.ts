@@ -78,9 +78,11 @@ export class IndexApi extends runtime.BaseAPI {
             formParams.append('modality', requestParameters.modality as any);
                     }
 
-        if (requestParameters.attributes) {
-            formParams.append('attributes', requestParameters.attributes as any);
-        }
+if (requestParameters.attributes) {
+    requestParameters.attributes.forEach((attribute) => {
+        formParams.append('attributes', attribute);
+    });
+}
 
         if (requestParameters.input) {
             requestParameters.input.forEach((element) => {

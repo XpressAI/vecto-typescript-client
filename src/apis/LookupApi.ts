@@ -104,9 +104,11 @@ export class LookupApi extends runtime.BaseAPI {
             formParams.append('query', requestParameters.query as any);
                     }
 
-        if (requestParameters.ids) {
-            formParams.append('ids', requestParameters.ids as any);
-        }
+		if (requestParameters.ids) {
+		    requestParameters.ids.forEach((id) => {
+		        formParams.append('ids', id);
+		    });
+		}
 
         const response = await this.request({
             path: `/api/v0/space/{vector_space_id}/lookup`.replace(`{${"vector_space_id"}}`, encodeURIComponent(String(requestParameters.vectorSpaceId))),
@@ -262,9 +264,11 @@ export class LookupApi extends runtime.BaseAPI {
             formParams.append('query', requestParameters.query as any);
                     }
 
-        if (requestParameters.ids) {
-            formParams.append('ids', requestParameters.ids as any);
-        }
+		if (requestParameters.ids) {
+		    requestParameters.ids.forEach((id) => {
+		        formParams.append('ids', id);
+		    });
+		}
 
         const response = await this.request({
             path: `/api/v0/space/{vector_space_id}/analogy/{id}`.replace(`{${"vector_space_id"}}`, encodeURIComponent(String(requestParameters.vectorSpaceId))).replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),

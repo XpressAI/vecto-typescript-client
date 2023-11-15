@@ -91,9 +91,11 @@ export class UpdateApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters.id) {
-            formParams.append('id', requestParameters.id as any);
-        }
+		if (requestParameters.id) {
+		    requestParameters.id.forEach((singleId) => {
+		        formParams.append('id', singleId);
+		    });
+		}
 
         const response = await this.request({
             path: `/api/v0/space/{vector_space_id}/delete`.replace(`{${"vector_space_id"}}`, encodeURIComponent(String(requestParameters.vectorSpaceId))),
@@ -230,13 +232,17 @@ export class UpdateApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters.id) {
-            formParams.append('id', requestParameters.id as any);
-        }
+		if (requestParameters.id) {
+		    requestParameters.id.forEach((singleId) => {
+		        formParams.append('id', singleId);
+		    });
+		}
 
-        if (requestParameters.attributes) {
-            formParams.append('attributes', requestParameters.attributes as any);
-        }
+if (requestParameters.attributes) {
+    requestParameters.attributes.forEach((attribute) => {
+        formParams.append('attributes', attribute);
+    });
+}
 
         const response = await this.request({
             path: `/api/v0/space/{vector_space_id}/update/attributes`.replace(`{${"vector_space_id"}}`, encodeURIComponent(String(requestParameters.vectorSpaceId))),
@@ -299,9 +305,11 @@ export class UpdateApi extends runtime.BaseAPI {
             formParams.append('modality', requestParameters.modality as any);
                     }
 
-        if (requestParameters.id) {
-            formParams.append('id', requestParameters.id as any);
-        }
+		if (requestParameters.id) {
+		    requestParameters.id.forEach((singleId) => {
+		        formParams.append('id', singleId);
+		    });
+		}
 
         if (requestParameters.input) {
             requestParameters.input.forEach((element) => {
