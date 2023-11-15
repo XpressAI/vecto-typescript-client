@@ -79,7 +79,7 @@ export class IndexApi extends runtime.BaseAPI {
                     }
 
         if (requestParameters.attributes) {
-            formParams.append('attributes', requestParameters.attributes.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('attributes', requestParameters.attributes as any);
         }
 
         if (requestParameters.input) {

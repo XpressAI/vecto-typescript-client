@@ -105,7 +105,7 @@ export class LookupApi extends runtime.BaseAPI {
                     }
 
         if (requestParameters.ids) {
-            formParams.append('ids', requestParameters.ids.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('ids', requestParameters.ids as any);
         }
 
         const response = await this.request({
@@ -263,7 +263,7 @@ export class LookupApi extends runtime.BaseAPI {
                     }
 
         if (requestParameters.ids) {
-            formParams.append('ids', requestParameters.ids.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('ids', requestParameters.ids as any);
         }
 
         const response = await this.request({

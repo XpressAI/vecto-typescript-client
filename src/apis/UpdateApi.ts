@@ -92,7 +92,7 @@ export class UpdateApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.id) {
-            formParams.append('id', requestParameters.id.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('id', requestParameters.id as any);
         }
 
         const response = await this.request({
@@ -231,11 +231,11 @@ export class UpdateApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.id) {
-            formParams.append('id', requestParameters.id.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('id', requestParameters.id as any);
         }
 
         if (requestParameters.attributes) {
-            formParams.append('attributes', requestParameters.attributes.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('attributes', requestParameters.attributes as any);
         }
 
         const response = await this.request({
@@ -300,7 +300,7 @@ export class UpdateApi extends runtime.BaseAPI {
                     }
 
         if (requestParameters.id) {
-            formParams.append('id', requestParameters.id.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('id', requestParameters.id as any);
         }
 
         if (requestParameters.input) {
